@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日祝福</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #faf1e6;
+        }
+        .email-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .email-header {
+            background-color: #ff7f50;
+            padding: 20px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: bold;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .email-body {
+            padding: 30px;
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .email-body h2 {
+            color: #ff7f50;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .email-body p {
+            margin: 15px 0;
+        }
+        .email-footer {
+            background-color: #f8f8f8;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+        .btn {
+            background-color: #ff7f50;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-size: 16px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .highlight {
+            color: #ff6347;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="email-container">
+    <div class="email-header">
+        生日快乐，<span class="highlight">"+c.Nickname+</span>！
+    </div>
+    <div class="email-body">
+        <h2> "+c.Nickname+"</h2>
+        <p>"+c.Message+"</p>
+        <p>再次祝你生日快乐，愿所有的梦想都能成真！🎂</p>
+        <a href="#" class="btn">让我们一起庆祝！</a>
+    </div>
+    <div class="email-footer">
+        <p>祝一切顺利，开心每一天。</p>
+        <p><span class="highlight"></span></p>
+    </div>
+</div>
+</body>
+</html>
