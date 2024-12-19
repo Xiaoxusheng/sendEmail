@@ -59,7 +59,7 @@ func SendEmail(c *Birthday) error {
 
 func Loop(c *Config) {
 	t1 := time.Now()
-	t2 := time.Date(t1.Year(), t1.Month(), t1.Day(), t1.Hour(), t1.Minute()+1, 0, 0, t1.Location())
+	t2 := time.Date(t1.Year(), t1.Month(), t1.Day()+1, 0, 0, 0, 0, t1.Location())
 	log.Println("任务启动," + t2.Sub(t1).String() + "后开始执行")
 
 	t3 := time.NewTicker(t2.Sub(t1))
@@ -71,7 +71,8 @@ func Loop(c *Config) {
 			go Lk(c)
 			//一天以后执行
 			t1 = time.Now()
-			t2 = time.Date(t1.Year(), t1.Month(), t1.Day(), t1.Hour(), t1.Minute()+1, 0, 0, t1.Location())
+			t2 = time.Date(t1.Year(), t1.Month(), t1.Day()+1, t1.Hour(), t1.Minute(), 0, 0, t1.Location())
+			t3.Reset(t2.Sub(t1))
 			log.Println("任务启动," + t2.Sub(t1).String() + "后开始执行")
 		}
 	}
@@ -86,7 +87,6 @@ func Lk(c *Config) {
 			log.Println(err)
 			return
 		}
-		fmt.Println(t2.Sub(t))
 		if t2.Sub(t).Hours() > (-24) && t2.Sub(t).Hours() < 0 {
 			//	今天有人过生日
 			err := SendEmail(&Birthday{
